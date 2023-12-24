@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/login.css">
+    <title>login</title>
+</head>
+<body>
+    <form class="form" id="login-form"> 
+        <span id="login-label">Login</span> 
+        <input class="input" type="text" placeholder="UserName" id="username" required>
+        <input class="input" type="password" placeholder="PassWord" id="password" minlength="8" maxlength="15" required>
+        <button id="btn" type="submit">Submit</button> 
+    </form>
+    
+    <script>
+        const form = document.getElementById('login-form');
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+    
+        form.addEventListener('submit', function(event) {
+            // Check username and password here
+            if (usernameInput.value.trim() === '' || passwordInput.value.trim() === '') {
+                event.preventDefault(); // Prevent form submission
+                alert('Please fill in both fields.');
+            } else if (passwordInput.value.length < 8 || passwordInput.value.length > 15) {
+                event.preventDefault(); // Prevent form submission
+                alert('Password must be between 8 and 15 characters.');
+            } else {
+                // If username and password are valid, redirect to index.html
+    window.open('index.html')
+            }
+        });
+    </script>
+    
+</body>
+</html>
